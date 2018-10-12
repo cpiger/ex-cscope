@@ -53,17 +53,26 @@ command! CSED call excscope#go_direct('e') " Find this egrep pattern
 "}}}
 
 " default key mappings {{{1
-call excscope#register_hotkey( 1  , 1, '<F1>'            , ":call excscope#toggle_help()<CR>"           , 'Toggle help.' )
+call excscope#register_hotkey( 1  , 1, '?'            , ":call excscope#toggle_help()<CR>"           , 'Toggle help.' )
 if has('gui_running')
     call excscope#register_hotkey( 2  , 1, '<ESC>'           , ":EXCSClose<CR>"                         , 'Close window.' )
 else
     call excscope#register_hotkey( 2  , 1, '<leader><ESC>'   , ":EXCSClose<CR>"                         , 'Close window.' )
 endif
-call excscope#register_hotkey( 3  , 1, '<Space>'         , ":call excscope#toggle_zoom()<CR>"           , 'Zoom in/out project window.' )
+" call excscope#register_hotkey( 3  , 1, '<Space>'         , ":call excscope#toggle_zoom()<CR>"           , 'Zoom in/out project window.' )
+call excscope#register_hotkey( 3  , 1, 'z'               , ":call excscope#toggle_zoom()<CR>"           , 'Zoom in/out project window.' )
 call excscope#register_hotkey( 4  , 1, '<CR>'            , ":call excscope#confirm_select('')<CR>"      , 'Go to the select result.' )
 call excscope#register_hotkey( 5  , 1, '<2-LeftMouse>'   , ":call excscope#confirm_select('')<CR>"      , 'Go to the select result.' )
 call excscope#register_hotkey( 6  , 1, '<S-CR>'          , ":call excscope#confirm_select('shift')<CR>" , 'Go to the select result in split window.' )
 call excscope#register_hotkey( 7  , 1, '<S-2-LeftMouse>' , ":call excscope#confirm_select('shift')<CR>" , 'Go to the select result in split window.' )
+call excscope#register_hotkey( 100, 0, '<leader>cs', ":EXCSToggle<CR>", 'Toggle cscope window.' )
+call excscope#register_hotkey( 101, 0, '<leader>cc', ":CSCD<CR>", 'c: Find functions calling this function.' )
+call excscope#register_hotkey( 102, 0, '<leader>cd', ":CSDD<CR>", 'd: Find functions called by this function.' )
+call excscope#register_hotkey( 103, 0, '<leader>se', ":CSED<CR>", 'e: Find this egrep pattern.' )
+call excscope#register_hotkey( 104, 0, '<leader>ct', ":CSGD<CR>", 'g: Find this definition.' )
+call excscope#register_hotkey( 105, 0, '<leader>cf', ":CSIC<CR>", 'i: Find files #including this file(bufname).' )
+call excscope#register_hotkey( 106, 0, '<leader>ci', ":CSID<CR>", 'i: Find files #including this file(word).' )
+call excscope#register_hotkey( 107, 0, '<leader>sd', ":CSSD<CR>", 's: Find this C symbol.' )
 "}}}
 
 call ex#register_plugin( 'excscope', { 'actions': ['autoclose'] } )
