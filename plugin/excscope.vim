@@ -1,4 +1,9 @@
 " default configuration {{{1
+
+if !exists('g:ex_cscope_engine')
+    let g:ex_cscope_engine = "gtags"
+endif
+
 if !exists('g:ex_cscope_winsize')
     let g:ex_cscope_winsize = 20
 endif
@@ -72,7 +77,7 @@ call excscope#register_hotkey( 103, 0, '<leader>se', ":CSED<CR>", 'e: Find this 
 call excscope#register_hotkey( 104, 0, '<leader>ct', ":CSGD<CR>", 'g: Find this definition.' )
 call excscope#register_hotkey( 105, 0, '<leader>cf', ":CSIC<CR>", 'i: Find files #including this file(bufname).' )
 call excscope#register_hotkey( 106, 0, '<leader>ci', ":CSID<CR>", 'i: Find files #including this file(word).' )
-call excscope#register_hotkey( 107, 0, '<leader>sd', ":CSSD<CR>", 's: Find this C symbol.' )
+call excscope#register_hotkey( 107, 0, '<leader>sc', ":CSSD<CR>", 's: Find this C symbol.' )
 "}}}
 
 call ex#register_plugin( 'excscope', { 'actions': ['autoclose'] } )
