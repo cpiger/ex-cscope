@@ -38,12 +38,12 @@ command! EXCSParseFunction call excscope#parse_function()
 " Commands
 "/////////////////////////////////////////////////////////////////////////////
 
-command! -nargs=1 -complete=customlist,exUtility#CompleteBySymbolFile CSD call excscope#get_searchresult('<args>', 'da')
-command! -nargs=1 -complete=customlist,exUtility#CompleteBySymbolFile CSC call excscope#get_searchresult('<args>', 'c')
-command! -nargs=1 -complete=customlist,exUtility#CompleteByProjectFile CSI call excscope#get_searchresult('<args>', 'i')
-command! -nargs=1 -complete=customlist,exUtility#CompleteBySymbolFile CSS call excscope#get_searchresult('<args>', 's')
-command! -nargs=1 -complete=customlist,exUtility#CompleteBySymbolFile CSG call excscope#get_searchresult('<args>', 'g')
-command! -nargs=1 -complete=customlist,exUtility#CompleteBySymbolFile CSE call excscope#get_searchresult('<args>', 'e')
+command! -nargs=1 -complete=customlist,ex#compl_by_symbol CSD call excscope#get_searchresult('<args>', 'da')
+command! -nargs=1 -complete=customlist,ex#compl_by_symbol CSC call excscope#get_searchresult('<args>', 'c')
+command! -nargs=1 -complete=customlist,ex#compl_by_prjfile CSI call excscope#get_searchresult('<args>', 'i')
+command! -nargs=1 -complete=customlist,ex#compl_by_symbol CSS call excscope#get_searchresult('<args>', 's')
+command! -nargs=1 -complete=customlist,ex#compl_by_symbol CSG call excscope#get_searchresult('<args>', 'g')
+command! -nargs=1 -complete=customlist,ex#compl_by_symbol CSE call excscope#get_searchresult('<args>', 'e')
 
 
 command! CSDD call excscope#go_direct('da') " Find functions called by this function
@@ -71,13 +71,13 @@ call excscope#register_hotkey( 5  , 1, '<2-LeftMouse>'   , ":call excscope#confi
 call excscope#register_hotkey( 6  , 1, '<S-CR>'          , ":call excscope#confirm_select('shift')<CR>" , 'Go to the select result in split window.' )
 call excscope#register_hotkey( 7  , 1, '<S-2-LeftMouse>' , ":call excscope#confirm_select('shift')<CR>" , 'Go to the select result in split window.' )
 call excscope#register_hotkey( 100, 0, '<leader>cs', ":EXCSToggle<CR>", 'Toggle cscope window.' )
-call excscope#register_hotkey( 101, 0, '<leader>cc', ":CSCD<CR>", 'c: Find functions calling this function.' )
-call excscope#register_hotkey( 102, 0, '<leader>cd', ":CSDD<CR>", 'd: Find functions called by this function.' )
-call excscope#register_hotkey( 103, 0, '<leader>se', ":CSED<CR>", 'e: Find this egrep pattern.' )
-call excscope#register_hotkey( 104, 0, '<leader>ct', ":CSGD<CR>", 'g: Find this definition.' )
-call excscope#register_hotkey( 105, 0, '<leader>cf', ":CSIC<CR>", 'i: Find files #including this file(bufname).' )
-call excscope#register_hotkey( 106, 0, '<leader>ci', ":CSID<CR>", 'i: Find files #including this file(word).' )
-call excscope#register_hotkey( 107, 0, '<leader>sc', ":CSSD<CR>", 's: Find this C symbol.' )
+call excscope#register_hotkey( 101, 0, '<leader>cc', ":CSCD<CR>", 'c: (CSCD)Find functions calling this function.' )
+call excscope#register_hotkey( 102, 0, '<leader>cd', ":CSDD<CR>", 'd: (CSDD)Find functions called by this function.' )
+call excscope#register_hotkey( 103, 0, '<leader>se', ":CSED<CR>", 'e: (CSED)Find this egrep pattern.' )
+call excscope#register_hotkey( 104, 0, '<leader>ct', ":CSGD<CR>", 'g: (CSGD)Find this definition.' )
+call excscope#register_hotkey( 105, 0, '<leader>cf', ":CSIC<CR>", 'i: (CSIC)Find files #including this file(bufname).' )
+call excscope#register_hotkey( 106, 0, '<leader>ci', ":CSID<CR>", 'i: (CSID)Find files #including this file(word).' )
+call excscope#register_hotkey( 107, 0, '<leader>sc', ":CSSD<CR>", 's: (CSSD)Find this C symbol.' )
 "}}}
 
 call ex#register_plugin( 'excscope', { 'actions': ['autoclose'] } )
